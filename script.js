@@ -112,7 +112,8 @@ function newCard() {
 const search = document.querySelector('#search');
 const searchBtn = document.querySelector('#searchBtn');
 
-searchBtn.addEventListener('click', searchFunction);
+// searchBtn.addEventListener('click', searchFunction);
+search.addEventListener('input', searchFunction)
 
 function searchFunction() {
     const cardList = document.querySelectorAll('.team-card');
