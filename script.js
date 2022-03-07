@@ -82,10 +82,10 @@ function newCard() {
 
     let lastIndex = members.length - 1;
 
+    // reset values
     nameInput.value = '';
     roleInput.value = '';
     imageInput.value = '';
-
 
     // creazione card
     const card = document.createElement('div');
@@ -105,8 +105,24 @@ function newCard() {
     card.append(cardTextContainer);
 
     cardTextContainer.innerHTML = `<h3>${members[lastIndex].name}</h3><p>${members[lastIndex].role}</p>`
-
-
-
 }
 
+// Extra Bonus exercise
+
+const search = document.querySelector('#search');
+const searchBtn = document.querySelector('#searchBtn');
+
+searchBtn.addEventListener('click', searchFunction);
+
+function searchFunction() {
+    const cardList = document.querySelectorAll('.team-card');
+
+    for (let i = 0; i < members.length; i++) {
+        cardList[i].classList.remove('hide');
+
+        if(!members[i].name.toLowerCase().includes(search.value.toLowerCase())){
+            cardList[i].classList.add('hide');
+        }
+  
+    }
+}
